@@ -230,3 +230,202 @@
                 font-size: 13px;
             }
         }
+
+        @media (max-width: 480px) {
+            .brand h1 {
+                font-size: 20px;
+            }
+
+            .brand p {
+                font-size: 11px;
+            }
+
+            nav {
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .card {
+                margin: 12px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <h1>Amal Cherian Jacob</h1>
+            <p>Embedded Systems & Electronics Engineer • UAV Firmware • IoT Systems • STM32 Bare-Metal</p>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<section id="about">
+    <div class="section-inner">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I’m an Embedded Systems Engineer with hands-on experience across the hardware–software stack — from bare‑metal ARM Cortex firmware to IoT sensor pipelines and UAV autopilot development.</p>
+            <p>“Drawn to problems that require both circuit-level thinking and clean software design.”</p>
+            <p><strong>M.Tech Embedded Systems</strong> — NIELIT Calicut (CGPA: 8.05/10)</p>
+            <p><strong>B.Tech Electronics & Communication</strong> — Amal Jyothi College of Engineering (CGPA: 7.26/10)</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="section-inner">
+        <h2>Technical Skills</h2>
+        <div class="card">
+            <p><strong>Languages:</strong> C, C++, Python, MicroPython, STM32 register-level</p>
+            <p><strong>Microcontrollers:</strong> STM32G474RE, ESP32, Arduino UNO</p>
+            <p><strong>Protocols:</strong> UART, SPI, I2C, ADC/GPIO, WiFi, MAVLink</p>
+            <p><strong>Tools:</strong> STM32CubeIDE, PX4 Autopilot, QGroundControl, Gazebo SITL, Vivado, Linux, VS Code</p>
+            <p><strong>Debugging:</strong> Oscilloscope, Logic Analyzer, UART Serial Debugging</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-inner">
+        <h2>Projects</h2>
+
+        <!-- MAIN PROJECT 1 -->
+        <div class="card">
+            <h3>Autonomous Intermediate Battery Charging System for UAVs</h3>
+            <p>Modified PX4 firmware (C/C++) to enable mid‑mission waypoint diversion to autonomous charging stations.</p>
+
+            <button class="view-more-btn" onclick="toggleSection('uav-details')">View More ▼</button>
+
+            <div id="uav-details" class="hidden-section">
+                <p><strong>Overview:</strong> Modified PX4 mission manager to allow dynamic waypoint injection based on battery thresholds.</p>
+                <p><strong>Architecture:</strong> PX4 Firmware → MAVLink → QGroundControl → Gazebo SITL.</p>
+                <p><strong>Firmware Logic:</strong> Battery < threshold → override mission waypoint → navigate → simulate charging → resume mission.</p>
+                <p><strong>Validation:</strong> SITL tests with diversion logs, MAVLink inspector, and QGC mission replay.</p>
+                <p><strong>Challenges:</strong> PX4 mission manager restrictions, static battery model.</p>
+                <p><strong>Solutions:</strong> State machine modification + custom battery drain model.</p>
+                <p><em>(Add screenshots here later)</em></p>
+            </div>
+        </div>
+
+        <!-- MAIN PROJECT 2 -->
+        <div class="card">
+            <h3>Smart Helmet – Alcohol Detection & Engine Cut-off</h3>
+            <p>STM32 node processes MQ3 sensor data → sends UART signal to ESP32 → relay cuts engine.</p>
+
+            <button class="view-more-btn" onclick="toggleSection('helmet-details')">View More ▼</button>
+
+            <div id="helmet-details" class="hidden-section">
+                <p><strong>Overview:</strong> Helmet detects alcohol + wear compliance → sends UART signal to ESP32 → engine cut-off.</p>
+                <p><strong>Hardware:</strong> MQ3 sensor, STM32G474RE, ESP32, relay module.</p>
+                <p><strong>Firmware:</strong> ADC sampling → threshold logic → UART packet → ESP32 motor control.</p>
+                <p><strong>Output:</strong> Engine cut-off demonstration + sensor logs.</p>
+                <p><em>(Add images later)</em></p>
+            </div>
+        </div>
+
+        <!-- MAIN PROJECT 3 -->
+        <div class="card">
+            <h3>Gas Leakage Detection System – STM32 ARM Cortex-M4</h3>
+            <p>Bare‑metal firmware (no HAL). MQ135 via ADC → threshold logic → buzzer + LED alerts.</p>
+
+            <button class="view-more-btn" onclick="toggleSection('gas-details')">View More ▼</button>
+
+            <div id="gas-details" class="hidden-section">
+                <p><strong>Overview:</strong> MQ135 sensor → ADC → threshold → buzzer + LED alerts.</p>
+                <p><strong>Firmware:</strong> No HAL. RCC, GPIO, ADC registers configured manually.</p>
+                <p><strong>Debugging:</strong> UART logs + oscilloscope traces.</p>
+                <p><strong>Outcome:</strong> Reliable detection with minimal latency.</p>
+                <p><em>(Add screenshots here later)</em></p>
+            </div>
+        </div>
+
+        <!-- SMALL PROJECTS -->
+        <h2>Other Projects</h2>
+
+        <div class="card">
+            <p><strong>Remote Weather Monitoring System – ESP32 IoT:</strong> DHT sensor → WiFi TCP/IP → live Blynk dashboard.</p>
+        </div>
+
+        <div class="card">
+            <p><strong>Smart Automated Clothesline – ESP32 Dual Motor Control:</strong> Rain + LDR sensor fusion → automatic extension/retraction using L298N motor driver.</p>
+        </div>
+
+        <div class="card">
+            <p><strong>Automated Waste Segregation System – Arduino:</strong> Inductive + capacitive sensors classify waste → servo-actuated bin gates.</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <div class="section-inner">
+        <h2>Experience</h2>
+
+        <div class="card">
+            <h3>Intern — ADNOC Distribution (2026–Present)</h3>
+            <p>Root cause analysis of failures in EV charging systems.</p>
+            <p>Firmware-stage analysis during charging cycles.</p>
+        </div>
+
+        <div class="card">
+            <h3>Intern — Unique World Robotics (2024)</h3>
+            <p>Built VR training environments for Oculus using Roblox Studio, Lua, and Python.</p>
+            <p>Contributed to published research (IJERA, May 2024).</p>
+        </div>
+    </div>
+</section>
+
+<section id="achievements">
+    <div class="section-inner">
+        <h2>Achievements & Certifications</h2>
+        <div class="card">
+            <p>GATE 2024 Qualified — Electronics & Communication</p>
+            <p>Published: Fire Guard VR — Immersive Fire Extinguisher Training (IJERA)</p>
+            <p>IEEE SB Knockout 2.0 — Coding Winner</p>
+            <p>District Winner — Young Innovators Program (YIP 4.0)</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-inner">
+        <h2>Contact</h2>
+        <div class="card contact">
+            <p><strong>Email:</strong> <a href="mailto:amalcherianjacobofficial@gmail.com">amalcherianjacobofficial@gmail.com</a></p>
+            <p><strong>Phone:</strong> +91 7994849375 / +971 565645039</p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/amal-cherian-jacob">linkedin.com/in/amal-cherian-jacob</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Amal-Hex">github.com/Amal-Hex</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Amal Cherian Jacob — Embedded Systems Engineer
+</footer>
+
+<script>
+function toggleSection(id) {
+    const section = document.getElementById(id);
+    section.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
