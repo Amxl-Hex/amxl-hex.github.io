@@ -152,6 +152,35 @@
             font-size: 13px;
         }
 
+        /* View More Button + Expandable Sections */
+        .view-more-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 12px;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        .view-more-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg-main);
+        }
+
+        .hidden-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            margin-top: 10px;
+        }
+
+        .hidden-section.open {
+            max-height: 600px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -198,166 +227,3 @@
             }
 
             .card p {
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand h1 {
-                font-size: 20px;
-            }
-
-            .brand p {
-                font-size: 11px;
-            }
-
-            nav {
-                gap: 8px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            .card {
-                margin: 12px 0;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="header-inner">
-        <div class="brand">
-            <h1>Amal Cherian Jacob</h1>
-            <p>Embedded Systems & Electronics Engineer • UAV Firmware • IoT Systems • STM32 Bare-Metal</p>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
-
-<section id="about">
-    <div class="section-inner">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>I’m an Embedded Systems Engineer with hands-on experience across the hardware–software stack — from bare‑metal ARM Cortex firmware to IoT sensor pipelines and UAV autopilot development.</p>
-            <p>“Drawn to problems that require both circuit-level thinking and clean software design.”</p>
-            <p><strong>M.Tech Embedded Systems</strong> — NIELIT Calicut (CGPA: 8.05/10)</p>
-            <p><strong>B.Tech Electronics & Communication</strong> — Amal Jyothi College of Engineering (CGPA: 7.26/10)</p>
-        </div>
-    </div>
-</section>
-
-<section id="skills">
-    <div class="section-inner">
-        <h2>Technical Skills</h2>
-        <div class="card">
-            <p><strong>Languages:</strong> C, C++, Python, MicroPython, STM32 register-level</p>
-            <p><strong>Microcontrollers:</strong> STM32G474RE, ESP32, Arduino UNO</p>
-            <p><strong>Protocols:</strong> UART, SPI, I2C, ADC/GPIO, WiFi, MAVLink</p>
-            <p><strong>Tools:</strong> STM32CubeIDE, PX4 Autopilot, QGroundControl, Gazebo SITL, Vivado, Linux, VS Code</p>
-            <p><strong>Debugging:</strong> Oscilloscope, Logic Analyzer, UART Serial Debugging</p>
-        </div>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="section-inner">
-        <h2>Projects</h2>
-
-        <div class="card">
-            <h3>Autonomous Intermediate Battery Charging System for UAVs</h3>
-            <p>Modified PX4 firmware (C/C++) to enable mid‑mission waypoint diversion to autonomous charging stations.</p>
-            <p>Integrated MAVLink telemetry and validated behaviour in Gazebo SITL + QGroundControl.</p>
-        </div>
-
-        <div class="card">
-            <h3>Smart Helmet – Alcohol Detection & Engine Cut-off</h3>
-            <p>STM32 node processes MQ3 sensor data → sends UART signal to ESP32 → relay cuts engine.</p>
-            <p>Includes wear‑compliance detection using secondary sensor.</p>
-        </div>
-
-        <div class="card">
-            <h3>Gas Leakage Detection System – STM32 ARM Cortex-M4</h3>
-            <p>Bare‑metal firmware (no HAL). MQ135 via ADC → threshold logic → buzzer + LED alerts.</p>
-            <p>Demonstrates direct register-level programming of ADC, GPIO, and UART peripherals.</p>
-        </div>
-
-        <div class="card">
-            <h3>Remote Weather Monitoring System – ESP32 IoT</h3>
-            <p>DHT sensor → WiFi TCP/IP → live Blynk dashboard with sub‑second latency.</p>
-        </div>
-
-        <div class="card">
-            <h3>Smart Automated Clothesline – ESP32 Dual Motor Control</h3>
-            <p>Rain + LDR sensor fusion → automatic extension/retraction using L298N motor driver.</p>
-        </div>
-
-        <div class="card">
-            <h3>Automated Waste Segregation System – Arduino</h3>
-            <p>Inductive + capacitive sensors classify waste → servo-actuated bin gates.</p>
-        </div>
-    </div>
-</section>
-
-<section id="experience">
-    <div class="section-inner">
-        <h2>Experience</h2>
-
-        <div class="card">
-            <h3>Intern — ADNOC Distribution (2026–Present)</h3>
-            <p>Root cause analysis of failures in EV charging systems.</p>
-            <p>Firmware (OCPP layer) analysis during charging cycles.</p>
-        </div>
-
-        <div class="card">
-            <h3>Intern — Unique World Robotics (2024)</h3>
-            <p>Built VR training environments for Oculus using Roblox Studio, Lua, and Python.</p>
-            <p>Contributed to published research (IJERA, May 2024).</p>
-        </div>
-    </div>
-</section>
-
-<section id="achievements">
-    <div class="section-inner">
-        <h2>Achievements & Certifications</h2>
-        <div class="card">
-            <p>GATE 2024 Qualified — Electronics & Communication</p>
-            <p>Published: Fire Guard VR — Immersive Fire Extinguisher Training (IJERA)</p>
-            <p>IEEE SB Knockout 2.0 — Coding Winner</p>
-            <p>District Winner — Young Innovators Program (YIP 4.0)</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="section-inner">
-        <h2>Contact</h2>
-        <div class="card contact">
-            <p><strong>Email:</strong> <a href="mailto:amalcherianjacobofficial@gmail.com">amalcherianjacobofficial@gmail.com</a></p>
-            <p><strong>Phone:</strong> +91 7994849375 / +971 565645039</p>
-            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/amal-cherian-jacob">linkedin.com/in/amal-cherian-jacob</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/Amal-Hex">github.com/Amal-Hex</a></p>
-        </div>
-    </div>
-</section>
-
-<footer>
-    © 2026 Amal Cherian Jacob — Embedded Systems Engineer
-</footer>
-
-</body>
-</html>
